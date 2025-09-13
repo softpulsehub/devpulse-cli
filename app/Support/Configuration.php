@@ -97,6 +97,6 @@ final readonly class Configuration
         /** @var ScriptShape[] $scripts */
         $scripts = Arr::where($this->scripts, fn (array $script): bool => in_array($script['name'], $keys));
 
-        return $scripts;
+        return array_reverse($scripts);
     }
 }
