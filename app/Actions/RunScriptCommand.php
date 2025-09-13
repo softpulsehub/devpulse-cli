@@ -8,7 +8,7 @@ use Symfony\Component\Process\Process;
 
 use function Laravel\Prompts\note;
 
-final class RunScriptCommmand
+final class RunScriptCommand
 {
     public function handle(string $command, int $timeout = 0): void
     {
