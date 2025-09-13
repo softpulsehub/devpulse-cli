@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Commands;
 
-use App\Actions\RunScriptCommmand;
+use App\Actions\RunScriptCommand;
 use App\Support\Configuration;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Str;
@@ -36,7 +36,7 @@ final class RunCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(Terminal $terminal, Configuration $configuration, RunScriptCommmand $runCommandAction): void
+    public function handle(Terminal $terminal, Configuration $configuration, RunScriptCommand $runCommandAction): void
     {
         /** @var string[] $names */
         $names = str($this->argument('names'))->explode(',')->toArray();
