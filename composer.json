@@ -8,17 +8,17 @@
         "productivity",
         "tool"
     ],
-    "homepage": "https://laravel-zero.com",
+    "homepage": "https://github.com/softpulselab/devpulse-cli",
     "type": "project",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/laravel-zero/laravel-zero/issues",
-        "source": "https://github.com/laravel-zero/laravel-zero"
+        "issues": "https://github.com/softpulselab/devpulse-cli/issues",
+        "source": "https://github.com/softpulselab/devpulse-cli"
     },
     "authors": [
         {
-            "name": "Nuno Maduro",
-            "email": "enunomaduro@gmail.com"
+            "name": "Ashok Barua",
+            "email": "ashokbaruaakas@gmail.com"
         }
     ],
     "require": {
