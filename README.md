@@ -1,53 +1,120 @@
 <p align="center">
-    <img src="/arts/devpulse-cli-logo.svg" alt="Overview DevPulse PHP" style="width:200px">
+<img src="/arts/devpulse-cli-logo.svg" alt="Overview DevPulse PHP" style="width:200px">
 </p>
 
----
+**DevPulse** is an open-source, lightweight command-line interface (CLI) designed to simplify and standardize development workflows. It provides a unified interface for managing scripts and server connections across platforms, boosting productivity and reducing complexity.
 
-**DevPulse** is an open-source command-line tool that simplifies and unifies developer workflows. Install it globally, define project-specific or reusable scripts (e.g., builds, tests, deployments), and run them with `devpulse run <script>`. Designed for flexibility, **DevPulse** lets you replace scattered scripts and tools with a single interface, empowering teams to standardize workflows without locking into specific languages or ecosystems.
+⚠️ **Note**: DevPulse is in active development. We're working toward a stable release—stay tuned!
 
-> Note: DevPulse is still under active development and is not yet ready for production use.
+## Key Features
+- 🌍 **Cross-Platform Support**: Available via Composer; support for Windows, macOS, and Linux coming soon.
+- ⚡ **Quick Setup**: Auto-generates configuration on first run or with `devpulse init`.
+- 🔄 **Smart Configuration Merging**: Combines global and local configurations, with local settings taking precedence.
+- 📝 **User-Friendly JSON Configs**: Easy-to-edit, human-readable JSON files for scripts and servers.
+- 🔒 **Full Data Control**: Store configurations locally with no vendor lock-in.
+- 🛡️ **Lightweight & Secure**: Zero dependencies, safe for any environment, including servers.
+- 🛠️ **Script Management**: Add, remove, edit, list, and run scripts with intuitive commands.
+- 🌐 **Server Management**: Add, remove, edit, list, and SSH into servers without manual configuration of host, port, or other SSH details.
 
 ## Installation
 
-Coming Soon...
+### Prerequisites
+- **PHP**: Version 8.1 or higher
+- **Composer**: Required for installation
+- **PATH Setup**: Ensure Composer's global bin directory is in your PATH. Add this to your `.bashrc`, `.zshrc`, or equivalent:
+  ```bash
+  export PATH="$PATH:$HOME/.composer/vendor/bin"
+  ```
 
-## Usage
+### Install DevPulse
+1. Install globally via Composer:
+   ```bash
+   composer global require softpulselab/devpulse-cli
+   ```
+2. Verify installation:
+   ```bash
+   devpulse --version
+   ```
 
-Coming Soon...
+## Getting Started
 
-## Configuration
-
-DevPulse can be configured using a `devpulse.json` file in the root of your project.
-
-You can scaffold the `devpulse.json` file with:
-
+### Initial Setup
+Run DevPulse for the first time to auto-generate a configuration file, or initialize manually:
 ```bash
 devpulse init
 ```
+`devpulse init` creates a `devpulse.json` file in the current directory. When executing any command, local settings (`./devpulse.json`) take precedence over global settings (e.g., `~/.devpulse/devpulse.json`).
 
-Here's an example configuration:
-
+### Configuration File
+DevPulse uses a simple `devpulse.json` file to manage scripts and servers. Example:
 ```json
 {
-    "scripts": [
-        {
-            "name": "php",
-            "description": "Print current PHP version.",
-            "command": "php --version"
-        }
-    ]
+  "scripts": [
+    {
+      "name": "test",
+      "command": "phpunit",
+      "description": "Run PHPUnit tests"
+    }
+  ],
+  "servers": [
+    {
+      "name": "production",
+      "host": "example.com",
+      "user": "deploy",
+      "port": 22
+    }
+  ]
 }
 ```
+- **Scripts**: Define reusable commands with optional descriptions.
+- **Servers**: Store SSH connection details for quick access.
 
-### Presets
+## Script Management
+Manage project scripts with straightforward commands:
 
-Coming Soon...
+| Command                       | Description                         | Example                                                         |
+|-------------------------------|-------------------------------------|-----------------------------------------------------------------|
+| `script:list`                 | List all scripts                    | `devpulse script:list`                                          |
+| `script:add`                  | Add a new script (interactive mode) | `devpulse script:add`                                           |
+| `script:add <name> <command>` | Add a script with inline options    | `devpulse script:add test "npm test" --description="Run tests"` |
+| `script:update <name>`        | Update an existing script           | `devpulse script:update test --command="npm run test:ci"`       |
+| `script:remove <name>`        | Remove a script                     | `devpulse script:remove test`                                   |
+| `run <name>`                  | Run a script                        | `devpulse run test`                                             |
 
-## Command Options
+### Running Scripts
+Execute scripts with flexible options:
+- Basic execution:
+  ```bash
+  devpulse run test
+  ```
+- Run concurrently:
+  ```bash
+  devpulse run test --concurrently
+  ```
+- Pass custom options:
+  ```bash
+  devpulse run deploy --env=production --force
+  ```
 
-Coming Soon...
+## Server Management
+Simplify server connections with these commands:
 
----
+| Command                    | Description                         | Example                                                              |
+|----------------------------|-------------------------------------|----------------------------------------------------------------------|
+| `server:list`              | List all servers                    | `devpulse server:list`                                               |
+| `server:add`               | Add a new server (interactive mode) | `devpulse server:add`                                                |
+| `server:add <name> <host>` | Add a server with inline options    | `devpulse server:add production example.com --user=deploy --port=22` |
+| `server:update <name>`     | Update server details               | `devpulse server:update production --port=2222`                      |
+| `server:remove <name>`     | Remove a server                     | `devpulse server:remove production`                                  |
+| `ssh <name>`               | SSH into a server                   | `devpulse ssh production`                                            |
 
-DevPulse is an open-sourced software licensed under the **[MIT license](https://opensource.org/licenses/MIT)**.
+## Contributing
+We welcome contributions! Fork the repository, make changes, and submit a Pull Request. Check the repository for guidelines and open issues.
+
+## License
+DevPulse is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Support
+- **Documentation**: [Official DevPulse Docs](https://github.com/softpulselab/devpulse-cli) (link to be added once available)
+- **Issues**: Report bugs or request features on the [GitHub repository](https://github.com/softpulselab/devpulse-cli/issues) (link to be added).
+- **Community**: Join discussions on [X](https://x.com/search?q=%23DevPulseCLI&src=typed_query) by searching for `#DevPulseCLI`.
