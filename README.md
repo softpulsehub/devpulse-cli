@@ -21,7 +21,7 @@
 
 ### Prerequisites
 
--   **PHP**: Version 8.1 or higher
+-   **PHP**: Version 8.2 or higher
 -   **Composer**: Required for installation
 -   **PATH Setup**: Ensure Composer's global bin directory is in your PATH. Add this to your `.bashrc`, `.zshrc`, or equivalent:
     ```bash
