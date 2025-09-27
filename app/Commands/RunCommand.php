@@ -138,7 +138,6 @@ final class RunCommand extends Command
         $appName = config('app.name');
 
         return $command
-            ->when($command->startsWith($appName), fn (Stringable $s) => $s->replace($appName, base_path($appName)))
             ->when($concurrently, fn (Stringable $s) => $s->wrap('"'))
             ->toString();
     }
