@@ -32,7 +32,7 @@
 
 1. Install globally via Composer:
     ```bash
-    composer global require softpulselab/devpulse-cli
+    composer global require softpulze/devpulse-cli
     ```
 2. Verify installation:
     ```bash
@@ -142,6 +142,6 @@ DevPulse is licensed under the [MIT License](https://opensource.org/licenses/MIT
 
 ## Support
 
--   **Documentation**: [Official DevPulse Docs](https://github.com/softpulselab/devpulse-cli) (Available Soon)
--   **Issues**: Report bugs or request features on the [GitHub repository](https://github.com/softpulselab/devpulse-cli/issues)
+-   **Documentation**: [Official DevPulse Docs](https://github.com/softpulze/devpulse-cli) (Available Soon)
+-   **Issues**: Report bugs or request features on the [GitHub repository](https://github.com/softpulze/devpulse-cli/issues)
 -   **Community**: Join discussions on [X](https://x.com/search?q=%23DevPulseCLI&src=typed_query) by searching for `#DevPulseCLI`.
